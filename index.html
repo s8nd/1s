@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swores Palace</title>
+    <style>
+        /* Styles to simulate Windows PowerShell */
+        body {
+            background-color: #012456;
+            color: #FFFFFF;
+            font-family: Consolas, "Courier New", monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #container {
+            text-align: center;
+            width: 50%;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Smooth and Modern Password Box Styles */
+        input[type="password"] {
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: 1px solid #FFF;
+            background-color: #012f5c;
+            color: #FFFFFF;
+            font-size: 1em;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="password"]:focus {
+            background-color: #014a7f;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #017acd;
+            color: #FFFFFF;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: #0191ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        /* Animation styles */
+        .move-to-top {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            transition: top 2s ease;
+        }
+        .final-text {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Password Entry Page -->
+    <div id="entry-page">
+        <p>Enter Password:</p>
+        <input type="password" id="password" placeholder="Enter password its 123">
+        <button onclick="checkPassword()">Enter</button>
+        <p id="error-message" style="color: #FF5555;" class="hidden">Incorrect password, try again.</p>
+    </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome-message" class="hidden">
+        <p>Welcome, this is Swores Palace</p>
+    </div>
+
+    <!-- Final Message -->
+    <div id="final-message" class="hidden">
+        <p>Swores 1s</p>
+    </div>
+
+    <!-- Text Sequence -->
+    <div id="text-sequence" class="hidden final-text">
+        <p>swore (the goat)</p>
+        <p>y.fun cool dude</p>
+        <p>yrw12 W</p>
+        <p>hba W</p>
+        <p>amrs12 W</p>
+    </div>
+</div>
+
+<script>
+    function checkPassword() {
+        const passwordInput = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+        
+        if (passwordInput === "123") {
+            document.getElementById("entry-page").classList.add("hidden");
+            showWelcomeMessage();
+        } else {
+            errorMessage.classList.remove("hidden");
+        }
+    }
+
+    function showWelcomeMessage() {
+        const welcomeMessage = document.getElementById("welcome-message");
+        welcomeMessage.classList.remove("hidden");
+
+        setTimeout(() => {
+            welcomeMessage.classList.add("hidden");
+            showFinalMessage();
+        }, 2000); // Display "Welcome" message for 2 seconds
+    }
+
+    function showFinalMessage() {
+        const finalMessage = document.getElementById("final-message");
+        finalMessage.classList.remove("hidden");
+
+        setTimeout(() => {
+            moveToTop();
+        }, 2000); // Display "Swores 1s" message for 2 seconds
+    }
+
+    function moveToTop() {
+        const finalMessage = document.getElementById("final-message");
+        finalMessage.classList.add("move-to-top");
+
+        // Show additional text sequence after moving "Swores 1s" to the top
+        setTimeout(() => {
+            finalMessage.classList.add("hidden");
+            document.getElementById("text-sequence").classList.remove("hidden");
+        }, 2000); // Wait for the move animation to complete before showing text sequence
+    }
+</script>
+
+</body>
+</html>
